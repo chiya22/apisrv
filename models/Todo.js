@@ -65,5 +65,8 @@ module.exports = {
     } else {
       throw new Error('更新対象のTodoが存在しません');
     }
+  },
+  delete: () => {
+    
   }
 };
