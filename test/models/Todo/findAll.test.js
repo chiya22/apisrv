@@ -17,9 +17,9 @@ describe('Todo.findAll', () => {
         body: todo.body,
         createdAt: todo.createdAt,
         updatedAt: todo.updatedAt
-      })
-    })
-  })
+      });
+    });
+  });
 });
 
 

@@ -37,5 +37,33 @@ module.exports = {
     });
     todos.push(todo);
     return todo;
+  },
+  update: ({ id, title, body }) => {
+    if (typeof id === 'number' && id <1) {
+      throw new Error('idの入力が不正です（1以上の数値）');
+    }
+    if (!id) {
+      throw new Error('idの入力が必要です');
+    }
+    if (!title) {
+      throw new Error('titleの入力が必要です');
+    }
+    if (!body) {
+      throw new Error('bodyの入力が必要です');
+    }
+
+    const updatedTodo = todos.find( (todo) => {
+      if (todo.id === id){
+        return todo;
+      }
+    })
+    if (updatedTodo) {
+      updatedTodo.title = title;
+      updatedTodo.body = body;
+      updatedTodo.updatedAt = new Date();
+      return updatedTodo;
+    } else {
+      throw new Error('更新対象のTodoが存在しません');
+    }
   }
 };
