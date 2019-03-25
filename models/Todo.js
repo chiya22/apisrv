@@ -12,7 +12,7 @@ class Todo {
   }
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
   const todo = new Todo({
     title: 'タイトル' + i + 1,
     body: '本文' + i + 1
@@ -66,7 +66,20 @@ module.exports = {
       throw new Error('更新対象のTodoが存在しません');
     }
   },
-  delete: () => {
-    
+  delete: ({id}) => {
+    if (typeof id === 'number' && id < 1){
+      throw new Error('idの入力が不正です（1以上の数値）');
+    };
+    if (!id) {
+      throw new Error('idの入力が必要です');
+    };
+    const deleteIndex = todos.findIndex((todo) => {
+      return id === todo.id;
+    })
+    if (deleteIndex === -1){
+      throw new Error('削除対象のTodoが存在しません');
+    }
+    const deletedTodo = todos.splice(deleteIndex,1)[0];
+    return deletedTodo;
   }
 };

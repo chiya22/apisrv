@@ -41,11 +41,8 @@ describe('Todo.create', () => {
 
   it('新規追加したTodoがリストへ追加されている', () => {
     const lenBefore = Todo.findAll().length;
-    console.log("before:" + lenBefore);
     const todo = Todo.create({title:'ダミータイトル2', body:'ダミーボディー2'});
     const lenAfter = Todo.findAll().length;
-    console.log("before:" + lenBefore);
-    console.log("after:" + lenAfter);
     assert.equal(lenBefore+1, lenAfter);
   })
 

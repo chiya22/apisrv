@@ -65,7 +65,7 @@ describe('Todo.update', () => {
 
   it('更新されたTodoが返却されてくる', () => {
     const data = {
-      id: 1,
+      id: 6,
       title: 'ダミータイトル1',
       body: 'ダミーボディー1'
     };
@@ -83,7 +83,7 @@ describe('Todo.update', () => {
 
   it('更新された場合、updatedAtが更新されていること', () => {
     const data = {
-      id: 1,
+      id: 6,
       title: 'ダミータイトル1',
       body: 'ダミーボディー1'
     }
@@ -93,7 +93,7 @@ describe('Todo.update', () => {
 
   it('更新したTodoがリストへ追加されても一覧の件数は変わらない', () => {
     const data = {
-      id: 1,
+      id: 6,
       title: 'updateダミータイトル1',
       body: 'updateダミーボディー1'
     }
